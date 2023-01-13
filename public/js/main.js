@@ -1,5 +1,6 @@
 function onSubmit(e) {
   e.preventDefault();
+  
 
   document.querySelector('.msg').textContent = '';
   document.querySelector('#image').src = '';
@@ -14,6 +15,8 @@ function onSubmit(e) {
 
   generateImageRequest(prompt, size);
 }
+
+
 
 async function generateImageRequest(prompt, size) {
   try {
@@ -39,7 +42,8 @@ async function generateImageRequest(prompt, size) {
     // console.log(data);
 
     const imageUrl = data.data;
-
+    
+    // Getting backend imageUrl 
     document.querySelector('#image').src = imageUrl;
 
     removeSpinner();
@@ -47,6 +51,8 @@ async function generateImageRequest(prompt, size) {
     document.querySelector('.msg').textContent = error;
   }
 }
+
+
 
 function showSpinner() {
   document.querySelector('.spinner').classList.add('show');
